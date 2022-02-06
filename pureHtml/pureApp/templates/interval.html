@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My-Title</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body class="full super-center-grid ">
+
+    <div class="super-center-grid main-layout default-shadow">
+        <h1>Timer</h1>
+        <h1 id="time">-</h1>
+    </div>
+</body>
+
+<!-- Honestly I have no idea if this is best practice -->
+<script>
+let count = 0;
+let h1 = document.getElementById("time")
+
+let func = setInterval(() => {
+    h1.innerHTML = count.toString()
+    count++;
+}, 1000)
+
+setTimeout(() => {
+    clearInterval(func)
+}, 1000 * 10)
+</script>
+
+</html>
